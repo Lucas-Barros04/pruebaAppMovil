@@ -1,3 +1,17 @@
-<p>
-  mostrar-posts works!
-</p>
+@for (post of posts; track post.id) {
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{post.title}}</ion-card-title>
+      <ion-card-subtitle>{{post.id}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{post.body}}
+    </ion-card-content>
+  
+    <ion-button fill="clear"><ion-icon name="heart-outline"></ion-icon></ion-button>
+    <ion-button fill="clear"><ion-icon name="heart-dislike-outline"></ion-icon></ion-button>
+  </ion-card>
+}
+  
+
