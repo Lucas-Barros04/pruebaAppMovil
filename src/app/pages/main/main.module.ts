@@ -17,7 +17,8 @@ import { ApiPostServiceService } from './service/api-post-service.service';
     FormsModule,
     IonicModule,
     MainPageRoutingModule,
-    HttpClientModule
+    HttpClientModule          //Para que la api funcione correctamente necesitamos importar HttpClienteModule para el correcto funcionamiento de la api
+                              // además de proveer el servicio api que se encuentra en "apiPostServiceService"
   ],
   declarations: [MainPage, MostrarPostsComponent],
   providers: [ApiPostServiceService]

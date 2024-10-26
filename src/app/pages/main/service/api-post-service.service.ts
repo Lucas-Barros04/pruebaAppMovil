@@ -19,7 +19,7 @@ export class ApiPostServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts():Observable<posts[]>{
-    return this.http.get<posts[]>(this.urlBase)
+  getPosts():Observable<posts[]>{   //Utilizamos "observable<posts[]>" para hacer un tipado mas fuerte, estos van embace a su contrato "posts" que contiene todo lo que podra mostrar.
+    return this.http.get<posts[]>(this.urlBase)  //utilizamos httpCliente para poder utilizar metodos como get, post, delete, etc. 
   }
 }

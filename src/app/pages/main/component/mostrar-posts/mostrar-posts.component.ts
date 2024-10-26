@@ -17,13 +17,13 @@ export class MostrarPostsComponent  implements OnInit {
       this.posts = valorLocalPosts
       console.log('usando valores locales') 
     }else{
-      this.apiPostService.getPosts().subscribe({
-        next: (response: any)=>{
-          console.log(response)
-          this.posts = response
-          localStorage.setItem('post', JSON.stringify(this.posts))
-          console.log('usando la api')
-        },error:(err)=>{
+      this.apiPostService.getPosts().subscribe({      //para poder obtener los valores de la api necesitamos subscribirnos al resultado que trae la api para poder visualizarlo,
+        next: (response: any)=>{                      // Luego usamos la palabra reservada "next" que esta permite resivir los datos y guardarlo en Una variable que le puse "response",
+          console.log(response)                       // es necesario usar any ya que typeScript no sabe que es lo que va a llegar, esto lo hace por seguridad, le pasamos el valor a la variable  
+          this.posts = response                       // posts para que esto sea mostrado en pantalla, 
+          localStorage.setItem('post', JSON.stringify(this.posts))    //usamos localStorage para guardar en local, este resive 2 string por eso utilizamos Json.stringifi, para que el array de datos se convierta en string, la llave que guardo los datos en local se la pasamos a una variable para que lo resiva
+          console.log('usando la api')                      //luego esa variable le hacemos el Json.parse para que el valor que traiga está se transforme a Json y este valor se lo pasamos a la variable Posts
+        },error:(err)=>{                                //ahora si el usuario recarga la página estará usando los valores locales.
           console.log(err)
         }
       })
